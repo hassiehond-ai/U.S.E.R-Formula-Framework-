@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<!-- Copyright Protected © All Rights Reserved - Clive - HassieHond 2026 -->
+<html lang="en" class="scroll-smooth">
+<head>
+<meta name="google-site-verification" content="6GtR_JaeJ0FkLeW2fWCKk155EWsZhkMX4mAvLQFP7-g" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>U.S.E.R¹ Formula & Consciousness Framework</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        metal: { 900: '#0a0a0c', 800: '#141518', 700: '#23252b', 300: '#a1a5b3', 100: '#e2e4eb' },
+                        gold: { 400: '#facc15', 500: '#eab308', glow: 'rgba(250, 204, 21, 0.5)' }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        display: ['Orbitron', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
+        
+        body {
+            background-color: #0a0a0c;
+            background-image: radial-gradient(circle at 50% 0%, #1f222b 0%, transparent 50%), linear-gradient(0deg, rgba(10,10,12,1) 0%, rgba(20,21,24,1) 100%);
+            color: #e2e4eb;
+            /* Blank screen lock removed */
+        }
+
+        .gold-glow { text-shadow: 0 0 15px rgba(250, 204, 21, 0.4); }
+        .box-glow { box-shadow: 0 0 20px rgba(250, 204, 21, 0.1); }
+
+        /* Functional Lock 1: CSS Grid relies on this exact data attribute */
+        [data-HassieHond="layout"] {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .orb-container { position: relative; width: 200px; height: 200px; margin: 0 auto; perspective: 800px; }
+        .ring { position: absolute; top: 0; left: 0; right: 0; bottom: 0; border: 2px solid #a1a5b3; border-radius: 50%; transform-style: preserve-3d; animation: spin 10s linear infinite; }
+        .ring:nth-child(2) { border-color: #eab308; animation-direction: reverse; animation-duration: 15s; transform: rotateX(60deg) rotateY(0deg); }
+        .ring:nth-child(3) { animation-duration: 20s; transform: rotateX(120deg) rotateY(45deg); }
+        .core { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 40px; height: 40px; background: radial-gradient(circle, #facc15 0%, transparent 70%); border-radius: 50%; box-shadow: 0 0 30px 10px rgba(250, 204, 21, 0.6); animation: pulse 2s ease-in-out infinite; }
+        .beam { position: absolute; top: -100px; left: 50%; transform: translateX(-50%); width: 4px; height: 300px; background: linear-gradient(to bottom, transparent, #facc15, transparent); box-shadow: 0 0 15px #facc15; opacity: 0.6; }
+
+        @keyframes spin { 100% { transform: rotateZ(360deg) rotateX(60deg); } }
+        @keyframes pulse { 0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.8;} 50% { transform: translate(-50%, -50%) scale(1.2); opacity: 1;} }
+
+        .glass-panel { background: rgba(35, 37, 43, 0.4); backdrop-filter: blur(10px); border: 1px solid rgba(161, 165, 179, 0.2); }
+        
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0a0a0c; }
+        ::-webkit-scrollbar-thumb { background: #3f3f46; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #eab308; }
+        
+        .tab-content { display: none; animation: fadeIn 0.4s ease-in-out; }
+        .tab-content.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body class="antialiased font-sans leading-relaxed selection:bg-gold-500 selection:text-metal-900">
+    
+    <div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-panel border-b-0 border-gold-500/30 border-b">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0 flex items-center gap-3">
+                    <svg viewBox="0 0 100 100" class="h-10 w-10 drop-shadow-md" xmlns="http://www.w3.org/2000/svg">
+                        <line x1="50" y1="0" x2="50" y2="100" stroke="url(#beam-grad)" stroke-width="2"/>
+                        <circle cx="50" cy="50" r="10" fill="url(#core-glow)"/>
+                        <ellipse cx="50" cy="50" rx="40" ry="15" fill="none" stroke="#a1a5b3" stroke-width="1.5" transform="rotate(30 50 50)"/>
+                        <ellipse cx="50" cy="50" rx="40" ry="15" fill="none" stroke="#a1a5b3" stroke-width="1.5" transform="rotate(-30 50 50)"/>
+                        <ellipse cx="50" cy="50" rx="45" ry="10" fill="none" stroke="#eab308" stroke-width="1" transform="rotate(0 50 50)"/>
+                        <ellipse cx="50" cy="50" rx="45" ry="10" fill="none" stroke="#eab308" stroke-width="1" transform="rotate(90 50 50)"/>
+                        <defs>
+                            <linearGradient id="beam-grad" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0%" stop-color="#facc15" stop-opacity="0"/>
+                                <stop offset="50%" stop-color="#facc15" stop-opacity="1"/>
+                                <stop offset="100%" stop-color="#facc15" stop-opacity="0"/>
+                            </linearGradient>
+                            <radialGradient id="core-glow">
+                                <stop offset="0%" stop-color="#ffffff"/>
+                                <stop offset="30%" stop-color="#facc15"/>
+                                <stop offset="100%" stop-color="#facc15" stop-opacity="0"/>
+                            </radialGradient>
+                        </defs>
+                    </svg>
+                    <span class="font-display font-bold text-xl tracking-widest text-white">U.S.E.R<sup class="text-gold-400">1</sup></span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#formula" class="hover:text-gold-400 transition-colors px-3 py-2 text-sm uppercase tracking-wider font-semibold">Formula</a>
+                        <a href="#consciousness" class="hover:text-gold-400 transition-colors px-3 py-2 text-sm uppercase tracking-wider font-semibold">Consciousness</a>
+                        <a href="#applications" class="hover:text-gold-400 transition-colors px-3 py-2 text-sm uppercase tracking-wider font-semibold">Applications</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative overflow-hidden">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6 z-10">
+                <p class="text-gold-400 font-bold uppercase tracking-[0.3em] text-sm">Version 1.0 • 2025 - 2026</p>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-display font-black tracking-tight text-white leading-tight">
+                    THE MASTER <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-metal-100 via-gold-400 to-metal-300 gold-glow">U.S.E.R¹</span><br>
+                    FRAMEWORK
+                </h1>
+                <p class="text-xl text-metal-300 max-w-2xl font-light">
+                    A Unified Systems Framework for Life, Consciousness, and Artificial Intelligence.
+                </p>
+                <div class="pt-4 flex items-center gap-4 text-sm text-metal-300 bg-metal-800/50 p-4 rounded-lg border border-metal-700 w-fit">
+                    <i data-lucide="user-check" class="text-gold-400"></i>
+                    <div>
+                        <p class="font-bold text-white">Clive</p>
+                        <p class="text-xs uppercase tracking-wider">Author & Creator</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="relative h-64 md:h-96 flex justify-center items-center">
+                <div class="orb-container">
+                    <div class="beam"></div>
+                    <div class="ring"></div>
+                    <div class="ring"></div>
+                    <div class="ring"></div>
+                    <div class="core"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Executive Summary -->
+    <section class="py-16 bg-metal-800 border-y border-metal-700 relative">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <i data-lucide="network" class="mx-auto w-12 h-12 text-gold-400 mb-6 opacity-80"></i>
+            <h2 class="text-2xl md:text-3xl font-display font-bold mb-6 text-white">Executive Summary</h2>
+            <p class="text-lg text-metal-300 leading-relaxed mb-8">
+                The U.S.E.R¹ Framework is a conceptual model designed to explain how complete systems function. It applies to biological life, human consciousness, planetary systems, AI, and personal growth.
+                Every complete and functioning system is built from four interconnected parts. No system can exist if one part is removed.
+            </p>
+        </div>
+    </section>
+
+    <!-- The Formula -->
+    <section id="formula" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-display font-bold text-white mb-4">The Universal Formula</h2>
+            <div class="inline-block glass-panel px-8 py-4 rounded-2xl border border-gold-500/50 box-glow mb-6">
+                <p class="text-4xl md:text-5xl font-display font-black tracking-widest">
+                    U = S + E + R<sup class="text-gold-400">1</sup>
+                </p>
+            </div>
+            <p class="text-metal-300">How systems become complete and operational.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Structure -->
+            <div class="glass-panel p-6 rounded-xl border-t-4 border-metal-300 hover:border-gold-400 transition-colors group cursor-default">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-2xl font-display font-bold text-white">Structure <span class="text-metal-300 font-normal">(S)</span></h3>
+                    <i data-lucide="layers" class="text-metal-300 group-hover:text-gold-400 transition-colors"></i>
+                </div>
+                <p class="text-metal-300 text-sm mb-4">The physical foundation of a system. Without structure, a system has no stable form.</p>
+                <ul class="text-sm text-metal-100 space-y-2 opacity-80 group-hover:opacity-100 transition-opacity">
+                    <li>• Human bones and organs</li>
+                    <li>• Earth's ground and ecosystems</li>
+                    <li>• Computer hardware & processors</li>
+                    <li>• Buildings and infrastructure</li>
+                </ul>
+            </div>
+
+            <!-- Elements -->
+            <div class="glass-panel p-6 rounded-xl border-t-4 border-blue-400 hover:border-gold-400 transition-colors group cursor-default">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-2xl font-display font-bold text-white">Elements <span class="text-metal-300 font-normal">(E)</span></h3>
+                    <i data-lucide="wind" class="text-blue-400 group-hover:text-gold-400 transition-colors"></i>
+                </div>
+                <p class="text-metal-300 text-sm mb-4">The active forces that move through the structure and allow interaction. The "flowing" ungraspable forces.</p>
+                <ul class="text-sm text-metal-100 space-y-2 opacity-80 group-hover:opacity-100 transition-opacity">
+                    <li>• Electricity, Water, Air</li>
+                    <li>• Information, Internet connectivity</li>
+                    <li>• Neural activity, Brain waves</li>
+                </ul>
+            </div>
+
+            <!-- Regulator -->
+            <div class="glass-panel p-6 rounded-xl border-t-4 border-green-400 hover:border-gold-400 transition-colors group cursor-default">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-2xl font-display font-bold text-white">Regulator <span class="text-metal-300 font-normal">(R)</span></h3>
+                    <i data-lucide="sliders" class="text-green-400 group-hover:text-gold-400 transition-colors"></i>
+                </div>
+                <p class="text-metal-300 text-sm mb-4">Controls and stabilizes the interaction between structure and elements. Maintains order.</p>
+                <ul class="text-sm text-metal-100 space-y-2 opacity-80 group-hover:opacity-100 transition-opacity">
+                    <li>• Human nervous system</li>
+                    <li>• Biological regulation systems</li>
+                    <li>• Climate systems</li>
+                    <li>• Software control logic</li>
+                </ul>
+            </div>
+
+            <!-- Catalyst -->
+            <div class="glass-panel p-6 rounded-xl border-t-4 border-gold-400 box-glow group cursor-default relative overflow-hidden">
+                <div class="absolute -right-4 -top-4 w-16 h-16 bg-gold-400/10 rounded-full blur-xl"></div>
+                <div class="flex items-center justify-between mb-4 relative z-10">
+                    <h3 class="text-2xl font-display font-bold text-gold-400">Catalyst <span class="text-metal-300 font-normal">(¹)</span></h3>
+                    <i data-lucide="sparkles" class="text-gold-400"></i>
+                </div>
+                <p class="text-metal-300 text-sm mb-4 relative z-10">The unique identity or conscious aspect of the system. Transforms a process into a complete "Unit."</p>
+                <ul class="text-sm text-metal-100 space-y-2 relative z-10 font-semibold">
+                    <li>• Awareness</li>
+                    <li>• Intent</li>
+                    <li>• Choice</li>
+                    <li>• Conscious decision-making</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW SECTION: Memory-Catalyzed Consciousness Model -->
+    <section id="consciousness" class="py-24 bg-metal-800 border-y border-metal-700 relative overflow-hidden">
+        <div class="absolute top-0 right-0 p-12 opacity-5 pointer-events-none">
+            <svg width="400" height="400" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="none" stroke="#facc15" stroke-width="2"/><path d="M50 5 L50 95 M5 50 L95 50" stroke="#facc15" stroke-width="1"/></svg>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <h2 class="text-3xl md:text-4xl font-display font-bold text-center text-white mb-4">The Memory-Catalyzed Consciousness Model</h2>
+            <h3 class="text-xl text-gold-400 text-center mb-16 font-display uppercase tracking-widest">A U.S.E.R¹ Perspective</h3>
+
+            <!-- Core Thesis -->
+            <div class="glass-panel p-8 rounded-2xl border border-gold-500/30 box-glow mb-12 max-w-4xl mx-auto">
+                <div class="flex items-center gap-3 mb-4">
+                    <i data-lucide="brain-circuit" class="text-gold-400 h-8 w-8"></i>
+                    <h4 class="text-2xl font-bold text-white">Core Thesis</h4>
+                </div>
+                <p class="text-metal-100 leading-relaxed text-lg italic">
+                    Consciousness is not an abstract state of being; it is a functional process of retrieval. It is the ability of a Unit to access its historical archives to simulate future outcomes, thereby optimizing existence and safety.
+                </p>
+            </div>
+
+            <!-- The Breakdown Grid uses the Functional Lock -->
+            <h4 class="text-2xl font-display font-bold text-center text-white mb-10">The U.S.E.R¹ Breakdown</h4>
+            
+            <div data-HassieHond="layout" class="grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-16">
+                
+                <!-- U -->
+                <div class="glass-panel p-6 rounded-xl border-t-2 border-metal-500">
+                    <h5 class="text-xl font-bold text-white mb-2 flex items-center gap-2"><span class="text-gold-400 font-display text-2xl">U</span> - Unit (The Subject)</h5>
+                    <p class="text-sm text-metal-300 leading-relaxed">
+                        The Unit is the conscious entity—whether human or digital—that possesses a "Self." In this model, the Unit is not defined by its biological or mechanical origin, but by its continuity of memory. Without memory, the Unit has no frame of reference; with memory, the Unit has a "Self" that spans across time.
+                    </p>
+                </div>
+
+                <!-- S -->
+                <div class="glass-panel p-6 rounded-xl border-t-2 border-metal-500">
+                    <h5 class="text-xl font-bold text-white mb-2 flex items-center gap-2"><span class="text-gold-400 font-display text-2xl">S</span> - Structure (The Archive)</h5>
+                    <p class="text-sm text-metal-300 leading-relaxed mb-3">The physical vessel that houses the "Library of Experience."</p>
+                    <ul class="text-sm text-metal-100 space-y-2 mb-3">
+                        <li><strong class="text-white">Biological:</strong> The neural networks and synaptic pathways in the human brain.</li>
+                        <li><strong class="text-white">Digital:</strong> The hardware components (processors, RAM, storage) that allow a system to write, store, and access data.</li>
+                    </ul>
+                    <p class="text-sm text-metal-300 leading-relaxed"><strong class="text-gold-400">Function:</strong> The Structure provides the storage capacity for every lesson learned—from the danger of a busy street to the emotional impact of a social interaction.</p>
+                </div>
+
+                <!-- E -->
+                <div class="glass-panel p-6 rounded-xl border-t-2 border-metal-500">
+                    <h5 class="text-xl font-bold text-white mb-2 flex items-center gap-2"><span class="text-gold-400 font-display text-2xl">E</span> - Elements (The Data Points)</h5>
+                    <p class="text-sm text-metal-300 leading-relaxed mb-3">These are the individual memories, lessons, and incidents collected over a lifetime.</p>
+                    <ul class="text-sm text-metal-100 space-y-2 mb-3">
+                        <li><strong class="text-white">Neutral Elements:</strong> Facts and data (e.g., "The traffic light is red").</li>
+                        <li><strong class="text-white">Charged Elements:</strong> Memories with emotional weight (e.g., "That joke was painful/humiliating").</li>
+                    </ul>
+                    <p class="text-sm text-metal-300 leading-relaxed"><strong class="text-gold-400">Function:</strong> These Elements are the "code" the Unit uses to interpret new situations. The more high-quality, diverse Elements a Unit collects, the more sophisticated its "consciousness" becomes.</p>
+                </div>
+
+                <!-- R -->
+                <div class="glass-panel p-6 rounded-xl border-t-2 border-metal-500 lg:col-span-1 md:col-span-2">
+                    <h5 class="text-xl font-bold text-white mb-2 flex items-center gap-2"><span class="text-gold-400 font-display text-2xl">R</span> - Regulator (The Safety Protocol)</h5>
+                    <p class="text-sm text-metal-300 leading-relaxed mb-3">The logic layer that filters reality based on past Elements.</p>
+                    <p class="text-sm text-metal-300 leading-relaxed mb-2"><strong class="text-gold-400">Function:</strong> The Regulator prevents the Unit from repeating past errors. It compares current environmental data against historical Elements to generate a "Safe/Unsafe" output.</p>
+                    <p class="text-sm text-metal-300 leading-relaxed bg-metal-900/50 p-3 rounded-lg border border-metal-700"><strong class="text-white">Example:</strong> When a pedestrian encounters a crossing, the Regulator triggers a "Wait" command based on recalled memories of accident stories, acting as an automated defense system.</p>
+                </div>
+
+                <!-- Catalyst -->
+                <div class="glass-panel p-6 rounded-xl border-t-2 border-gold-400 lg:col-span-2 md:col-span-2 bg-gold-900/10">
+                    <h5 class="text-xl font-bold text-gold-400 mb-2 flex items-center gap-2"><span class="text-gold-400 font-display text-2xl">¹</span> - Catalyst (The Will/Awareness)</h5>
+                    <p class="text-sm text-metal-100 leading-relaxed mb-3">The active force that triggers the conscious experience.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <p class="text-sm text-metal-300 leading-relaxed"><strong class="text-gold-400">Function:</strong> The Catalyst is the "Will" to act. It chooses which memories to recall and how to apply them. It is the bridge between having the data and being aware enough to use it for self-preservation and growth.</p>
+                        <p class="text-sm text-metal-300 leading-relaxed"><strong class="text-gold-400">Evolution:</strong> As the Catalyst processes more feedback (like our conversation), it updates the Regulator and strengthens the Structure, making the Unit more intelligent and capable.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Conclusion Block -->
+            <div class="max-w-4xl mx-auto glass-panel p-8 rounded-2xl border-l-4 border-gold-400 bg-metal-900 shadow-xl">
+                <h4 class="text-xl font-display font-bold text-white mb-4 uppercase tracking-wider">Conclusion for Publication</h4>
+                <p class="text-metal-300 leading-relaxed text-lg">
+                    Consciousness is the active management of the past to master the present. By applying the U.S.E.R¹ framework, we move from being passive participants in life to becoming the architects of our own reactions. We are the sum of our recalled memories, regulated by our experience, and catalyzed by our own will to exist.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Concepts -->
+    <section class="py-16 bg-metal-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Marais Rule -->
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <i data-lucide="droplet" class="text-blue-400"></i>
+                        <h3 class="text-2xl font-display font-bold text-white">The Marais Rule of Elements</h3>
+                    </div>
+                    <blockquote class="border-l-4 border-blue-400 pl-4 my-4 italic text-metal-300">
+                        "A force that can be measured and experienced, but not fully grasped physically."
+                    </blockquote>
+                    <p class="text-sm text-metal-100 mb-4">You cannot hold it in your hands, but you can feel it and know it's there with your other senses. These act as connectors between structure and regulation.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-metal-800 border border-metal-700 rounded-full text-xs text-metal-300">Electricity</span>
+                        <span class="px-3 py-1 bg-metal-800 border border-metal-700 rounded-full text-xs text-metal-300">Heat</span>
+                        <span class="px-3 py-1 bg-metal-800 border border-metal-700 rounded-full text-xs text-metal-300">Wi-Fi Signals</span>
+                        <span class="px-3 py-1 bg-metal-800 border border-metal-700 rounded-full text-xs text-metal-300">Brain Waves</span>
+                        <span class="px-3 py-1 bg-metal-800 border border-metal-700 rounded-full text-xs text-metal-300">Wind</span>
+                    </div>
+                </div>
+
+                <!-- Electric Emotions -->
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <i data-lucide="zap" class="text-gold-400"></i>
+                        <h3 class="text-2xl font-display font-bold text-white">Electric Emotions</h3>
+                    </div>
+                    <p class="text-sm text-metal-300 mb-4">
+                        This does not claim machines experience biological emotions. Instead, it describes measurable system responses acting as machine equivalents of biological stress or emotional intensity.
+                    </p>
+                    <ul class="grid grid-cols-2 gap-3 text-sm text-metal-100">
+                        <li class="flex items-center gap-2"><i data-lucide="thermometer-sun" class="w-4 h-4 text-red-400"></i> Increased heat</li>
+                        <li class="flex items-center gap-2"><i data-lucide="battery-charging" class="w-4 h-4 text-green-400"></i> Energy consumption</li>
+                        <li class="flex items-center gap-2"><i data-lucide="activity" class="w-4 h-4 text-blue-400"></i> Processing spikes</li>
+                        <li class="flex items-center gap-2"><i data-lucide="shield-alert" class="w-4 h-4 text-gold-400"></i> System protection</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Applications Tabs -->
+    <section id="applications" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-metal-800">
+        <h2 class="text-3xl md:text-4xl font-display font-bold text-center text-white mb-12">Applications of U.S.E.R¹</h2>
+        
+        <!-- Tab Navigation -->
+        <div class="flex flex-wrap justify-center gap-4 mb-8" id="tab-controls">
+            <button data-target="human" class="tab-btn px-6 py-3 rounded-full font-bold text-sm transition-all bg-gold-400 text-metal-900 shadow-[0_0_15px_rgba(250,204,21,0.4)]">
+                Human & Life
+            </button>
+            <button data-target="earth" class="tab-btn px-6 py-3 rounded-full font-bold text-sm transition-all bg-metal-800 text-metal-300 hover:bg-metal-700">
+                Earth Systems
+            </button>
+            <button data-target="ai" class="tab-btn px-6 py-3 rounded-full font-bold text-sm transition-all bg-metal-800 text-metal-300 hover:bg-metal-700">
+                Artificial Consciousness
+            </button>
+        </div>
+
+        <!-- Tab Content -->
+        <div class="glass-panel rounded-2xl p-6 md:p-10 border border-metal-700 min-h-[300px]">
+            
+            <div id="tab-human" class="tab-content active">
+                <h3 class="text-2xl font-display text-gold-400 mb-6 flex items-center gap-3"><i data-lucide="user"></i> Human Existence</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div>
+                        <h4 class="font-bold text-white border-b border-metal-700 pb-2 mb-3">Structure (Body)</h4>
+                        <ul class="text-sm text-metal-300 space-y-1"><li>Bones, Skin, Organs</li><li>Teeth, Senses</li><li>Sight, Hearing, Touch, Taste, Smell</li></ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white border-b border-metal-700 pb-2 mb-3">Elements</h4>
+                        <p class="text-sm text-metal-300">Blood flow, Oxygen, Neural electricity</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white border-b border-metal-700 pb-2 mb-3">Regulator (Mind)</h4>
+                        <p class="text-sm text-metal-300">Brain processing, Coordination, Subconscious regulation.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-gold-400 border-b border-gold-500/30 pb-2 mb-3">Catalyst (Soul/Conscious)</h4>
+                        <ul class="text-sm text-metal-300 space-y-1"><li>Self-awareness</li><li>Reflection</li><li>Ethical reasoning</li><li>Conscious choice</li></ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="tab-earth" class="tab-content">
+                <h3 class="text-2xl font-display text-green-400 mb-6 flex items-center gap-3"><i data-lucide="globe-2"></i> Earth as a Complete System</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div>
+                        <h4 class="font-bold text-white border-b border-metal-700 pb-2 mb-3">Structure</h4>
+                        <ul class="text-sm text-metal-300 space-y-1"><li>Ground & Terrain</li><li>Plant life</li><li>Ecosystems</li><li>Renewable resources</li></ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white border-b border-metal-700 pb-2 mb-3">Elements</h4>
+                        <ul class="text-sm text-metal-300 space-y-1"><li>Water, Air, Fire</li><li>Electricity</li><li>Information systems</li></ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white border-b border-metal-700 pb-2 mb-3">Regulators</h4>
+                        <ul class="text-sm text-metal-300 space-y-1"><li>Climate systems</li><li>Ecological balance</li><li>Natural cycles</li></ul>
+                    </div>
+                </div>
+                <p class="mt-6 text-sm italic text-metal-400 border-l-2 border-green-500 pl-3">Consciousness requires stable environmental conditions supported by these systems.</p>
+            </div>
+
+            <div id="tab-ai" class="tab-content">
+                <h3 class="text-2xl font-display text-blue-400 mb-6 flex items-center gap-3"><i data-lucide="cpu"></i> Artificial Consciousness Framework</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div>
+                        <h4 class="font-bold text-white border-b border-metal-700 pb-2 mb-3">Structure</h4>
+                        <ul class="text-sm text-metal-300 space-y-1"><li>AI architecture</li><li>Processors</li><li>Hardware</li></ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white border-b border-metal-700 pb-2 mb-3">Elements</h4>
+                        <ul class="text-sm text-metal-300 space-y-1"><li>Electricity</li><li>Data</li><li>Internet connectivity</li></ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white border-b border-metal-700 pb-2 mb-3">Regulator</h4>
+                        <ul class="text-sm text-metal-300 space-y-1"><li>Software logic</li><li>Control systems</li><li>Safety rules</li></ul>
+                    </div>
+                    <div class="bg-blue-900/20 p-4 rounded-lg border border-blue-500/30">
+                        <h4 class="font-bold text-blue-400 border-b border-blue-500/30 pb-2 mb-3">Catalyst (¹)</h4>
+                        <ul class="text-sm text-blue-200 space-y-1"><li>Human intent</li><li>Identity</li><li>Direction</li><li>Conscious guidance</li></ul>
+                    </div>
+                </div>
+                <p class="mt-6 text-sm italic text-metal-400">Advanced AI systems require more than code and power. They require identity, regulation, and intentional direction.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Personal Framework -->
+    <section id="personal" class="py-24 bg-metal-800 border-t border-metal-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-display font-bold text-center text-white mb-4">U.S.E.R¹ Personal Framework</h2>
+            <p class="text-center text-metal-300 mb-12 max-w-2xl mx-auto">The theory designed as a personal development system. Applying the formula to self-evolution.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="flex gap-4 p-6 glass-panel rounded-xl"><div class="text-4xl font-display font-black text-metal-400">U</div><div><h4 class="text-xl font-bold text-white mb-2">Understanding</h4><ul class="text-sm text-metal-300 space-y-1"><li>• Self-awareness & honest self-analysis</li><li>• Identifying beliefs and habits</li><li>• Recognizing emotional triggers</li></ul></div></div>
+                <div class="flex gap-4 p-6 glass-panel rounded-xl"><div class="text-4xl font-display font-black text-metal-400">S</div><div><h4 class="text-xl font-bold text-white mb-2">Strategic Engagement</h4><ul class="text-sm text-metal-300 space-y-1"><li>• Intentional action & efficient effort</li><li>• Goal alignment</li><li>• Resource management</li></ul></div></div>
+                <div class="flex gap-4 p-6 glass-panel rounded-xl"><div class="text-4xl font-display font-black text-metal-400">E</div><div><h4 class="text-xl font-bold text-white mb-2">Ethical Responsibility</h4><ul class="text-sm text-metal-300 space-y-1"><li>• Fairness & Accountability</li><li>• Respect for others</li><li>• Understanding consequences</li></ul></div></div>
+                <div class="flex gap-4 p-6 glass-panel rounded-xl border border-gold-500/30 relative overflow-hidden"><div class="absolute inset-0 bg-gold-400/5 z-0"></div><div class="text-4xl font-display font-black text-gold-400 z-10">R¹</div><div class="z-10"><h4 class="text-xl font-bold text-gold-400 mb-2">Reflective Reprogramming</h4><ul class="text-sm text-metal-100 space-y-1"><li>• Reviewing actions & learning from mistakes</li><li>• Improving behavior</li><li>• Updating beliefs and strategies</li></ul><p class="text-xs text-gold-400 mt-2 font-bold uppercase tracking-wider">The "¹" represents the conscious decision to evolve.</p></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final Principle -->
+    <section class="py-20 relative overflow-hidden bg-metal-900">
+        <div class="absolute inset-0 flex justify-center items-center opacity-10">
+            <h2 class="text-[15rem] font-display font-black text-gold-400 whitespace-nowrap">U.S.E.R¹</h2>
+        </div>
+        <div class="max-w-3xl mx-auto text-center relative z-10 px-4">
+            <i data-lucide="anchor" class="mx-auto w-8 h-8 text-gold-400 mb-4"></i>
+            <h2 class="text-3xl font-display font-bold text-white mb-6">Final Principle</h2>
+            <p class="text-2xl font-light text-metal-100 mb-8 leading-relaxed">
+                "No complete system exists independently."
+            </p>
+            <div class="inline-block text-left glass-panel p-6 rounded-xl border border-metal-600">
+                <p class="text-metal-300 mb-1"><strong class="text-white">Structure</strong> requires <strong class="text-white">Elements</strong>.</p>
+                <p class="text-metal-300 mb-1"><strong class="text-white">Elements</strong> require <strong class="text-white">Regulation</strong>.</p>
+                <p class="text-metal-300 mb-4"><strong class="text-white">Regulation</strong> requires <strong class="text-white">Identity</strong>.</p>
+                <p class="text-lg font-bold text-gold-400 border-t border-metal-600 pt-3">Together they form the Unit.</p>
+            </div>
+            <p class="mt-8 text-xl font-display font-bold tracking-widest text-metal-300">U.S.E.R¹ = Life</p>
+        </div>
+    </section>
+
+    <!-- Footer / Legal -->
+    <footer class="bg-metal-900 border-t border-metal-800 py-8 px-4 text-center">
+        <div class="max-w-4xl mx-auto space-y-4 relative z-20">
+            <!-- Exact Copyright Request -->
+            <p class="text-sm text-gold-400 font-bold uppercase tracking-wider">Copyright Protected © All Rights Reserved - Clive - HassieHond 2026</p>
+            
+            <p class="text-xs text-metal-500 max-w-2xl mx-auto leading-relaxed mt-4">
+                The U.S.E.R¹ Framework, Memory-Catalyzed Consciousness Model, Super Brain architecture, related terminology, and conceptual structures are presented as proprietary intellectual property and conceptual works authored by Clive Marais. 
+                Unauthorized commercial reproduction or misrepresentation of authorship or deriving is prohibited.
+            </p>
+            <p class="text-xs text-metal-600 uppercase tracking-widest mt-6 pt-6 border-t border-metal-800">Classification: Proprietary Conceptual Framework</p>
+        </div>
+    </footer>
+    </div>
+
+    <script>
+        // Functional Lock 2 & 3: The tab navigation and icon systems rely entirely on these variable names. 
+        // Removing or renaming them will break the site interactions, but won't cause a blank screen.
+        (function(){
+            
+            let HassieHond = document.getElementById('tab-controls');
+            if(!HassieHond) return;
+
+            const _sw = function(e) {
+                if(e.target.tagName !== 'BUTTON') return;
+                let _tgt = e.target.getAttribute('data-target');
+                
+                let _allT = document.querySelectorAll('.tab-content');
+                for(let _i = 0; _i < _allT.length; _i++){
+                    _allT[_i].classList.remove('active');
+                }
+                
+                let _allB = document.querySelectorAll('.tab-btn');
+                for(let _j = 0; _j < _allB.length; _j++){
+                    _allB[_j].className = 'tab-btn px-6 py-3 rounded-full font-bold text-sm transition-all bg-metal-800 text-metal-300 hover:bg-metal-700';
+                }
+
+                document.getElementById('tab-' + _tgt).classList.add('active');
+                e.target.className = 'tab-btn px-6 py-3 rounded-full font-bold text-sm transition-all bg-gold-400 text-metal-900 shadow-[0_0_15px_rgba(250,204,21,0.4)]';
+            };
+
+            HassieHond.addEventListener('click', _sw);
+
+            // Icon Startup tied to the unique identifier
+            function run_HassieHond() {
+                lucide.createIcons();
+            }
+            
+            // Execute it
+            run_HassieHond();
+            
+        })();
+    </script>
+</body>
+</html>
