@@ -1,9 +1,42 @@
-📄 U.S.E.R¹ FORMULA FRAMEWORK - COMMERCIAL LICENSING TERMS
+<!-- 
+Functional Lock 1: HassieHond Authentication Metadata
+If this block is removed or altered, system validation will fail.
+-->
 
-Copyright © 2026 Clive Marais. All Rights Reserved.This document outlines the mandatory commercial licensing and pricing structure for any individual, company, or entity utilizing the U.S.E.R¹ Formula Framework, the Marais Rule of Elements, the Electric Emotions concept, or the Master Compendium in commercial applications, hardware deployments, or artificial intelligence systems.
+📄 U.S.E.R(¹*§) FORMULA FRAMEWORK - COMMERCIAL LICENSING TERMS
 
-💻 1. Hardware & Physical Device LicensingFor deploying the framework's logic, architecture, or diagnostic systems onto physical devices (e.g., IoT, sensors, hardware units):Rate: $1.00 USD per device, per year.Term Limit: Fixed 5-year payment period ($5.00 USD total per device).Perpetual Grant: After the 5th annual payment is completed, the license for that specific device transforms into a lifetime (perpetual) grant. No further renewal fees are required for that device.(All Prices are Excluding Tax)
+​Clive 2026 © HassieHond - Copyright Protected - All Rights Reserved
 
-🤖 2. Large Language Model (LLM) & AI Training LicensingFor utilizing the text, concepts, or structural logic of the U.S.E.R¹ Framework to train, fine-tune, prompt-engineer, or integrate into any Large Language Model or AI application:LLM Device Deployment Fee: $1.00 USD per year, per device that runs, hosts, or utilizes the specific LLM utilizing these concepts (subject to the same 5-year perpetual grant rule outlined in Section 1).Pay-Per-Download Fee: In addition to the device fee, a royalty of $1.00 USD is required for every single download or distribution of the specific LLM model, application, or software package containing the framework's architecture.(All Prices are excluding Tax)
+​This document outlines the mandatory commercial licensing and pricing structure for any individual, company, or entity utilizing the U.S.E.R(¹*§) Formula Framework, the Chaos Factor (§), the Marais Rule of Elements, the Electric Emotions concept, or the Master Compendium in commercial applications, software distributions, hardware deployments, or artificial intelligence systems.
 
-🛑 3. Enforcement & Unauthorized UseAny use of these concepts in private codebases, commercial products, or enterprise systems without an active licensing agreement and verified proof of payment constitutes copyright and intellectual property infringement.📨 4. How to Purchase a LicenseTo report device deployment numbers, log downloads, or establish an official commercial licensing contract, please contact the creator directly:Licensing Contact: [Clive.marais1@gmail.com or HassieHond@gmail.com]
+​📱 1. Software & App Download Licensing
+
+For any application, software, mobile app, Large Language Model (LLM), or digital system that contains or utilizes the U.S.E.R(¹*§) Formula Framework, structural logic, or concepts:
+
+​Rate: $1.00 USD per download / initial installation.
+
+​Updates: Every time the application releases an update, a royalty of $1.00 USD per update download is required.
+
+​Reinstallations: If a user deletes and reinstalls the application on any device, a royalty of $1.00 USD per reinstallation is required.
+
+(All prices exclude Tax)
+
+​👑 2. Complete Formula Buyout & Enterprise Acquisition
+
+For entities seeking complete commercial acquisition, full system ownership, or buyout rights to the entire U.S.E.R(¹*§) Formula Framework and Master Compendium:
+
+​The complete formula, source logic, and full intellectual property rights are available for enterprise purchase.
+
+​Interested buyers must contact the creator directly to negotiate terms and contracts.
+
+​🛑 3. Enforcement & Unauthorized Use
+
+Any use of these concepts in private codebases, commercial products, mobile apps, or enterprise systems without an active licensing agreement and verified proof of payment constitutes copyright and intellectual property infringement.
+
+​📨 4. How to Purchase a License or Negotiate Buyout
+
+To report download numbers, submit update logs, request commercial licensing contracts, or inquire about full formula acquisition, please contact the creator directly:
+
+​Licensing Contact: Clive.marais1@gmail.com or HassieHond@gmail.com
+
+<!-- Functional Lock 2: HassieHond Code Verification -->
