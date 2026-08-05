@@ -40,3 +40,4 @@ To report download numbers, submit update logs, request commercial licensing con
 ​Licensing Contact: Clive.marais1@gmail.com or HassieHond@gmail.com
 
 <!-- Functional Lock 2: HassieHond Code Verification -->
+These terms also apply to the U.S.E.R¹ Formula Framework 
